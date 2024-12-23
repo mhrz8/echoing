@@ -1,7 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Service",
   "extends": "./base.json",
   "compilerOptions": {
-    "jsx": "react-jsx"
+    "module": "ESNext",
+    "moduleResolution": "bundler"
   }
 }

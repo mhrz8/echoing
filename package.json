@@ -1,7 +1,29 @@
 {
   "name": "echoing",
+  "version": "0.0.0",
+  "description": "eslint config package for echoing application",
+  "author": "hirzinurfakhrian@gmail.com",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
   "packageManager": "yarn@4.5.3",
+  "engines": {
+    "node": ">=20"
+  },
+  "engineStrict": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "clear:node_modules": "rm -rf node_modules apps/*/node_modules packages/*/node_modules",
+    "clear:output": "find . -name dist -o -name out -o -name generated -o -name .turbo -o -name .cache | grep -v node_modules | xargs rm -rf",
+    "reset": "yarn clear:node_modules && yarn clear:output && yarn install --frozen-lockfile",
+    "dev": "turbo dev"
+  },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.1"
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2"
   }
 }

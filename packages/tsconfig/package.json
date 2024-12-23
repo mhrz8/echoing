@@ -1,0 +1,12 @@
+{
+  "name": "@echoing/tsconfig",
+  "version": "0.0.0",
+  "description": "tsconfig package for echoing application",
+  "author": "hirzinurfakhrian@gmail.com",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "yarn@4.5.3",
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
