@@ -5,6 +5,9 @@ import prettier from 'eslint-plugin-prettier/recommended';
 /** @type {import('eslint').Linter.Config[]} */
 export const baseConfig = tseslint.config(
   {
+    ignores: ["node_modules", "dist"],
+  },
+  {
     files: ['**/*.js', '**/*.mjs', '**/*.cjs', '**/*.ts'],
   },
   {
@@ -31,6 +34,7 @@ export const baseConfig = tseslint.config(
           after: false,
         },
       ],
+      "no-console": ["error", { allow: ['warn', 'error'] }],
       'no-trailing-spaces': 'error',
       'object-curly-spacing': ['error', 'always'],
       'array-bracket-spacing': ['error', 'never'],
@@ -49,7 +53,6 @@ export const baseConfig = tseslint.config(
       ],
       'no-multiple-empty-lines': ['error', { max: 1 }],
       'array-element-newline': ['error', 'consistent'],
-      'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
       'prettier/prettier': [
         'error',
         {
