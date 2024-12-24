@@ -10,7 +10,7 @@ export const logger = createLogger({
         format.simple(),
         format.printf(({ level, ...payload }) => {
           const { message } = Object.assign({}, payload) as { message: string };
-          return `[${level.toUpperCase()}] ${message}`;
+          return `[${level.toUpperCase()}] -- ${message}`;
         }),
       ),
     }),

@@ -23,6 +23,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@echoing/content-service@workspace:apps/content-service":
+  version: 0.0.0-use.local
+  resolution: "@echoing/content-service@workspace:apps/content-service"
+  dependencies:
+    "@echoing/eslintconfig": "workspace:*"
+    "@echoing/logger": "workspace:*"
+    "@echoing/tsconfig": "workspace:*"
+    "@types/cors": "npm:^2.8.17"
+    "@types/express": "npm:^5.0.0"
+    "@types/node": "npm:^22.10.2"
+    concurrently: "npm:^9.1.0"
+    cors: "npm:^2.8.5"
+    dotenv: "npm:^16.4.7"
+    esbuild: "npm:^0.24.2"
+    express: "npm:^4.21.2"
+    nodemon: "npm:^3.1.9"
+    typescript: "npm:^5.7.2"
+  languageName: unknown
+  linkType: soft
+
 "@echoing/eslintconfig@workspace:*, @echoing/eslintconfig@workspace:packages/eslintconfig":
   version: 0.0.0-use.local
   resolution: "@echoing/eslintconfig@workspace:packages/eslintconfig"
@@ -84,6 +104,8 @@ __metadata:
     "@echoing/eslintconfig": "workspace:*"
     "@echoing/tsconfig": "workspace:*"
     "@types/node": "npm:^22.10.2"
+    concurrently: "npm:^9.1.0"
+    nodemon: "npm:^3.1.9"
     typescript: "npm:^5.7.2"
     winston: "npm:^3.17.0"
   languageName: unknown

@@ -2,13 +2,15 @@ import { logger } from '@echoing/logger';
 import express from 'express';
 import type { Request, Response } from 'express';
 
-export const app = express();
+const serviceName = process.env.SERVICE_NAME;
 const PORT = process.env.HTTP_PORT;
+
+export const app = express();
 
 app.use(express.json());
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('farewell-service is awake!');
+  res.send(`${serviceName} is awake!`);
 });
 
 app.get('/healthz', (req: Request, res: Response) => {
