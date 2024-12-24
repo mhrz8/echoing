@@ -1,0 +1,30 @@
+{
+  "name": "@echoing/logger",
+  "version": "0.0.0",
+  "description": "logger package for echoing app",
+  "author": "hirzinurfakhrian@gmail.com",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "packageManager": "yarn@4.5.3",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "tsc --p tsconfig.json",
+    "check-types": "tsc --noEmit",
+    "lint": "echo 'unimplemented'"
+  },
+  "dependencies": {
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@echoing/eslintconfig": "workspace:*",
+    "@echoing/tsconfig": "workspace:*",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}

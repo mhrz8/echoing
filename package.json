@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "build": "turbo build",
-    "clear:node_modules": "rm -rf node_modules apps/*/node_modules packages/*/node_modules",
+    "clear:node_modules": "find \"apps/*/node_modules\" \"packages/*/node_modules\" \"node_modules\" -type d 2>/dev/null -exec rm -rf {} +",
     "clear:output": "find . -name dist -o -name out -o -name generated -o -name .turbo -o -name .cache | grep -v node_modules | xargs rm -rf",
     "reset": "yarn clear:node_modules && yarn clear:output && yarn install --frozen-lockfile",
     "dev": "turbo dev"
@@ -25,5 +25,8 @@
   "devDependencies": {
     "turbo": "^2.3.3",
     "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "winston": "^3.17.0"
   }
 }
