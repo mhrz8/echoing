@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/nodemon.json",
   "delay": 1000,
-  "exec": "tsc --p tsconfig.json",
-  "ext": "js,cjs,mjs",
-  "watch": ["dist"]
+  "exec": "buf generate",
+  "ext": "proto",
+  "watch": ["proto"]
 }

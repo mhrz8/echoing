@@ -1,0 +1,10 @@
+syntax = "proto3";
+package content.v1;
+
+message GetContentByIdRequest {
+  string id = 1;
+}
+
+message GetContentByIdResponse {
+  string template = 1;
+}

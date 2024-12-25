@@ -1,0 +1,8 @@
+syntax = "proto3";
+package content.v1;
+
+import "content/v1/message.proto";
+
+service ContentService {
+  rpc GetContentById(GetContentByIdRequest) returns (GetContentByIdResponse) {}
+}

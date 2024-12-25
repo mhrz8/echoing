@@ -1,0 +1,9 @@
+syntax = "proto3";
+package farewell.v1;
+
+import "farewell/v1/message.proto";
+
+service FarewellService {
+  rpc SayGoodBye(SayGoodByeRequest) returns (SayGoodByeResponse) {}
+  rpc SaySeeYou(SaySeeYouRequest) returns (SaySeeYouResponse) {}
+}

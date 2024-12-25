@@ -15,9 +15,8 @@
   ],
   "scripts": {
     "build": "tsc --p tsconfig.json",
-    "dev": "concurrently --kill-others --success all --names build \"tsc --watch --p tsconfig.json\"",
-    "check-types": "tsc --noEmit",
-    "lint": "echo 'unimplemented'"
+    "dev": "tsc --watch --p tsconfig.json",
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
     "winston": "^3.17.0"
@@ -26,8 +25,6 @@
     "@echoing/eslintconfig": "workspace:*",
     "@echoing/tsconfig": "workspace:*",
     "@types/node": "^22.10.2",
-    "concurrently": "^9.1.0",
-    "nodemon": "^3.1.9",
     "typescript": "^5.7.2"
   }
 }

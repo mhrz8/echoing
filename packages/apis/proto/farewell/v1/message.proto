@@ -1,0 +1,18 @@
+syntax = "proto3";
+package farewell.v1;
+
+message SayGoodByeRequest {
+  string name = 1;
+}
+
+message SayGoodByeResponse {
+  string message = 1;
+}
+
+message SaySeeYouRequest {
+  string name = 1;
+}
+
+message SaySeeYouResponse {
+  string message = 1;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+package greeter.v1;
+
+message SayHelloRequest {
+  string name = 1;
+}
+
+message SayHelloResponse {
+  string message = 1;
+}
+
+message SayGoodMorningRequest {
+  string name = 1;
+  string weather = 2;
+}
+
+message SayGoodMorningResponse {
+  string message = 1;
+}
