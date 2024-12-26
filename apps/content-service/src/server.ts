@@ -14,11 +14,12 @@ const GRPC_PORT = process.env.GRPC_PORT ?? '50051';
 const app = express();
 const grpcApp = new grpc.Server();
 
+// add express routes
 app.use(express.json());
-
 app.get('/', home(SERVICE_NAME));
 app.get('/healthz', healthz());
 
+// add grpc servers
 grpcApp.addService(createDefinition(ContentService), ContentServer);
 
 export const run = (): void => {
@@ -46,6 +47,7 @@ export const run = (): void => {
     logger.info(`grpc server is running on http://localhost:${GRPC_PORT}`);
   });
 
+  // spin the servers concurrently
   Promise.all([httpListener, grpcListener])
     .then(() => {
       logger.info('servers are running successfully!');

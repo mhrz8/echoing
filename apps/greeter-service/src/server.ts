@@ -1,31 +1,17 @@
 import { logger } from '@echoing/logger';
 import express from 'express';
-import type { Request, Response } from 'express';
-import { ContentServiceClient, createGrpcClient } from '@echoing/apis';
+import { healthz, home, content } from './routes';
 
 const SERVICE_NAME = process.env.SERVICE_NAME ?? '';
 const HTTP_PORT = process.env.HTTP_PORT ?? '8080';
 
 export const app = express();
 
+// add express routes
 app.use(express.json());
-
-app.get('/', (req: Request, res: Response) => {
-  res.send(`${SERVICE_NAME} is awake!`);
-});
-
-app.get('/go', async (req: Request, res: Response) => {
-  const response = await createGrpcClient(ContentServiceClient).getContentById({
-    id: 'greeter',
-  });
-  res.send(response.response.template);
-});
-
-app.get('/healthz', (req: Request, res: Response) => {
-  res.json({
-    health: true,
-  });
-});
+app.get('/', home(SERVICE_NAME));
+app.get('/content', content());
+app.get('/healthz', healthz());
 
 export const run = (): void => {
   const httpListen = (port: string): Promise<void> => {
@@ -44,6 +30,7 @@ export const run = (): void => {
     logger.info(`http server is running on http://localhost:${HTTP_PORT}`);
   });
 
+  // spin the servers concurrently
   Promise.all([httpListener])
     .then(() => {
       logger.info('servers are running successfully!');
