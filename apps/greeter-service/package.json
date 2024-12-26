@@ -14,6 +14,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@echoing/apis": "workspace:*",
     "@echoing/logger": "workspace:*",
     "@grpc/grpc-js": "^1.12.5",
     "cors": "^2.8.5",

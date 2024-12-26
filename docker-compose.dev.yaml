@@ -39,6 +39,28 @@ services:
       - echoing
     volumes_from:
       - workspace
+  content-service-dapr:
+    image: 'daprio/daprd:edge'
+    container_name: echoing-content-dapr
+    depends_on:
+      - content-service
+    command:
+      [
+        './daprd',
+        '-app-id',
+        'content',
+        '-app-port',
+        '50051',
+        '-app-protocol',
+        'grpc',
+        '-app-protocol',
+        'http',
+        '-dapr-grpc-port',
+        '50099',
+        '-placement-host-address',
+        'placement:50000',
+      ]
+    network_mode: 'service:content-service'
   farewell-service:
     image: node:20-alpine3.21
     container_name: echoing-farewell-service
@@ -58,6 +80,28 @@ services:
       - echoing
     volumes_from:
       - workspace
+  farewell-service-dapr:
+    image: 'daprio/daprd:edge'
+    container_name: echoing-farewell-dapr
+    depends_on:
+      - farewell-service
+    command:
+      [
+        './daprd',
+        '-app-id',
+        'farewell',
+        '-app-port',
+        '50051',
+        '-app-protocol',
+        'grpc',
+        '-app-protocol',
+        'http',
+        '-dapr-grpc-port',
+        '50099',
+        '-placement-host-address',
+        'placement:50000',
+      ]
+    network_mode: 'service:farewell-service'
   greeter-service:
     image: node:20-alpine3.21
     container_name: echoing-greeter-service
@@ -77,6 +121,28 @@ services:
       - echoing
     volumes_from:
       - workspace
+  greeter-service-dapr:
+    image: 'daprio/daprd:edge'
+    container_name: echoing-greeter-dapr
+    depends_on:
+      - greeter-service
+    command:
+      [
+        './daprd',
+        '-app-id',
+        'greeter',
+        '-app-port',
+        '50051',
+        '-app-protocol',
+        'grpc',
+        '-app-protocol',
+        'http',
+        '-dapr-grpc-port',
+        '50099',
+        '-placement-host-address',
+        'placement:50000',
+      ]
+    network_mode: 'service:greeter-service'
 
 networks:
   echoing:

@@ -18,7 +18,6 @@
     "@echoing/logger": "workspace:*",
     "@grpc/grpc-js": "^1.12.5",
     "@protobuf-ts/grpc-backend": "^2.9.4",
-    "@protobuf-ts/grpc-transport": "^2.9.4",
     "cors": "^2.8.5",
     "express": "^4.21.2"
   },

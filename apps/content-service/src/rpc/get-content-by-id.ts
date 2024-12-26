@@ -2,18 +2,31 @@ import type { GetContentByIdRequest } from '@echoing/apis';
 import { createGrpcHandler, GetContentByIdResponse } from '@echoing/apis';
 import { logger } from '@echoing/logger';
 
+async function processing(ms: number): Promise<void> {
+  return new Promise((res) => setTimeout(res, ms));
+}
+
 export const getContentById = createGrpcHandler<GetContentByIdRequest, GetContentByIdResponse>(
   async (request, call) => {
-    logger.info(`Request received: ${JSON.stringify(request)}`);
+    const template = 'Hmmm, I dont think I know what to do, {{name}}...';
 
-    logger.info(`Headers: ${JSON.stringify({ meta: call.metadata })}`);
+    await processing(500);
 
-    await new Promise((res) => setTimeout(res, 10));
+    logger.info(`[getContentById] processing request: ${JSON.stringify(request)}`);
+    logger.info(`[getContentById] processing metadata: ${JSON.stringify(call.metadata)}`);
 
-    const name: string = request.id ?? 'World';
+    if (request.id === 'greeter') {
+      return GetContentByIdResponse.create({
+        template: 'Hello welcome, {{name}}!',
+      });
+    } else if (request.id === 'farewell') {
+      return GetContentByIdResponse.create({
+        template: 'See you again, {{name}}!',
+      });
+    }
 
     return GetContentByIdResponse.create({
-      template: `Hello, ${name}`,
+      template,
     });
   },
 );

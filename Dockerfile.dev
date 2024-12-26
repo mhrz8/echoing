@@ -12,4 +12,4 @@ COPY yarn.lock ./yarn.lock
 COPY turbo.json ./turbo.json
 RUN yarn install --frozen-lockfile
 
-CMD ["yarn", "workspace", "@echoing/logger", "dev"]
+CMD ["yarn", "concurrently", "\"yarn workspace @echoing/logger dev\"", "\"yarn workspace @echoing/apis dev\""]

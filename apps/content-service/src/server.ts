@@ -7,7 +7,7 @@ import { ContentService } from '@echoing/apis';
 import { createDefinition } from '@protobuf-ts/grpc-backend';
 import { ContentServer } from './rpc';
 
-const serviceName = process.env.SERVICE_NAME ?? '';
+const SERVICE_NAME = process.env.SERVICE_NAME ?? '';
 const HTTP_PORT = process.env.HTTP_PORT ?? '8080';
 const GRPC_PORT = process.env.GRPC_PORT ?? '50051';
 
@@ -16,7 +16,7 @@ const grpcApp = new grpc.Server();
 
 app.use(express.json());
 
-app.get('/', home(serviceName));
+app.get('/', home(SERVICE_NAME));
 app.get('/healthz', healthz());
 
 grpcApp.addService(createDefinition(ContentService), ContentServer);
