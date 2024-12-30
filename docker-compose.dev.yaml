@@ -47,18 +47,12 @@ services:
     command:
       [
         './daprd',
-        '-app-id',
-        'content',
-        '-app-port',
-        '50051',
-        '-app-protocol',
-        'grpc',
-        '-app-protocol',
-        'http',
-        '-dapr-grpc-port',
-        '50099',
-        '-placement-host-address',
-        'placement:50000',
+        '-app-id', 'content',
+        '-app-port', '50051',
+        '-app-protocol', 'grpc',
+        '-app-protocol', 'http',
+        '-dapr-grpc-port', '50099',
+        '-placement-host-address', 'placement:50000',
       ]
     network_mode: 'service:content-service'
   farewell-service:
@@ -88,18 +82,12 @@ services:
     command:
       [
         './daprd',
-        '-app-id',
-        'farewell',
-        '-app-port',
-        '50051',
-        '-app-protocol',
-        'grpc',
-        '-app-protocol',
-        'http',
-        '-dapr-grpc-port',
-        '50099',
-        '-placement-host-address',
-        'placement:50000',
+        '-app-id', 'farewell',
+        '-app-port', '50051',
+        '-app-protocol', 'grpc',
+        '-app-protocol', 'http',
+        '-dapr-grpc-port', '50099',
+        '-placement-host-address', 'placement:50000',
       ]
     network_mode: 'service:farewell-service'
   greeter-service:
@@ -129,18 +117,12 @@ services:
     command:
       [
         './daprd',
-        '-app-id',
-        'greeter',
-        '-app-port',
-        '50051',
-        '-app-protocol',
-        'grpc',
-        '-app-protocol',
-        'http',
-        '-dapr-grpc-port',
-        '50099',
-        '-placement-host-address',
-        'placement:50000',
+        '-app-id', 'greeter',
+        '-app-port', '50051',
+        '-app-protocol', 'grpc',
+        '-app-protocol', 'http',
+        '-dapr-grpc-port', '50099',
+        '-placement-host-address', 'placement:50000',
       ]
     network_mode: 'service:greeter-service'
 
