@@ -10,6 +10,7 @@
   "scripts": {
     "build": "esbuild --bundle --sourcemap --platform=node --format=esm --packages=external --tsconfig=tsconfig.json --outdir=dist src/**/index.ts",
     "dev": "concurrently --kill-others --prefix \"[{time}][{name}]\" --names build,start \"yarn build --watch\" \"nodemon\"",
+    "dev:dapr": "dapr run --app-id farewell --app-port 60102 --app-protocol grpc --dapr-grpc-port 60002 --placement-host-address localhost:60000 --resources-path ../../components -- yarn dev",
     "start": "node --enable-source-maps dist",
     "check-types": "tsc --noEmit"
   },

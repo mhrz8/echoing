@@ -21,7 +21,8 @@
     "clear:output": "find . -name dist -o -name generated -o -name .turbo -o -name .cache | grep -v node_modules | xargs rm -rf",
     "reset": "yarn clear:output && yarn clear:node_modules && yarn install --frozen-lockfile && yarn build",
     "start": "turbo start",
-    "dev": "turbo dev"
+    "dev": "turbo dev",
+    "dev:dapr": "turbo dev:dapr"
   },
   "devDependencies": {
     "concurrently": "^9.1.0",

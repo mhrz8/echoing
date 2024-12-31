@@ -3,7 +3,7 @@ import { GrpcTransport } from '@protobuf-ts/grpc-transport';
 import type { RpcTransport } from '@protobuf-ts/runtime-rpc';
 import { kebabCase } from 'case-anything';
 
-export const DAPR_PORT = 50099;
+export const DAPR_PORT = process.env.DAPR_PORT ?? '50099';
 
 export function createGrpcHandler<Request, Response>(
   handler: (request: Request, call: grpc.ServerUnaryCall<Request, Response>) => Promise<Response>,

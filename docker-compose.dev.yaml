@@ -33,8 +33,9 @@ services:
       - NODE_ENV=development
       - HTTP_PORT=8080
       - GRPC_PORT=50051
+      - DAPR_PORT=50099
     ports:
-      - '3100:8080'
+      - '3101:8080'
     networks:
       - echoing
     volumes_from:
@@ -68,8 +69,9 @@ services:
       - NODE_ENV=development
       - HTTP_PORT=8080
       - GRPC_PORT=50051
+      - DAPR_PORT=50099
     ports:
-      - '3101:8080'
+      - '3102:8080'
     networks:
       - echoing
     volumes_from:
@@ -103,8 +105,9 @@ services:
       - NODE_ENV=development
       - HTTP_PORT=8080
       - GRPC_PORT=50051
+      - DAPR_PORT=50099
     ports:
-      - '3102:8080'
+      - '3103:8080'
     networks:
       - echoing
     volumes_from:

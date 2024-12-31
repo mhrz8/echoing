@@ -37,7 +37,7 @@ export const run = (): void => {
   const grpcListen = promisify(grpcApp.bindAsync.bind(grpcApp) as typeof grpcApp.bindAsync);
 
   const httpListener = httpListen(HTTP_PORT).then(() => {
-    logger.info(`http server is running on http://localhost:${HTTP_PORT}`);
+    logger.info(`http server iss running on http://localhost:${HTTP_PORT}`);
   });
 
   const grpcListener = grpcListen(
