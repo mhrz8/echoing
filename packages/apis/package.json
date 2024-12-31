@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "build": "buf generate && tsx ./src/scripts/gen-grpc-index.ts && tsc --p tsconfig.json",
-    "dev": "concurrently --kill-others --success all --names buf,patch,build \"nodemon\" \"tsx ./src/scripts/gen-grpc-index.ts\" \"tsc --watch --p tsconfig.json\"",
+    "watch": "concurrently --kill-others --success all --names buf,patch,build \"nodemon\" \"tsx ./src/scripts/gen-grpc-index.ts\" \"tsc --watch --p tsconfig.json\"",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
