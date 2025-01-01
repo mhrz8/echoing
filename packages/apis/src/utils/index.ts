@@ -20,18 +20,26 @@ export function createGrpcHandler<Request, Response>(
   };
 }
 
+const connections = new Map<string, GrpcTransport>();
+
+function createTransport(appId: string): GrpcTransport {
+  if (!connections.has(appId)) {
+    const transport = new GrpcTransport({
+      host: `localhost:${DAPR_PORT}`,
+      channelCredentials: grpc.ChannelCredentials.createInsecure(),
+      meta: { 'dapr-app-id': appId },
+    });
+    connections.set(appId, transport);
+  }
+
+  return connections.get(appId) as GrpcTransport;
+}
+
 export function createGrpcClient<T extends new (transport: RpcTransport) => InstanceType<T>>(
   Client: T,
 ): InstanceType<T> {
   const appId = kebabCase(Client.name.slice(0, Client.name.indexOf('ServiceClient')));
-
-  const transport = new GrpcTransport({
-    host: `localhost:${DAPR_PORT}`,
-    channelCredentials: grpc.ChannelCredentials.createInsecure(),
-    meta: { 'dapr-app-id': appId },
-  });
-
+  const transport = createTransport(appId);
   const client = new Client(transport);
-
   return client;
 }

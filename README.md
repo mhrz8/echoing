@@ -30,6 +30,7 @@ dapr init
 # or
 dapr init --slim # if you want to custom your redis, pls refer to ./components/redis.yaml file
 ~/.dapr/bin/placement --port 60000 # starting dapr placement
+~/.dapr/bin/scheduler # starting dapr scheduler (optional)
 
 # EDIT YOUR .env for DAPR_PORT
 
