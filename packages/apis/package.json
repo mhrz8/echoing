@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "build": "buf generate && tsx ./src/scripts/gen-grpc-index.ts && tsc --p tsconfig.json",
-    "watch": "concurrently --kill-others --success all --names buf,patch,build \"nodemon\" \"tsx ./src/scripts/gen-grpc-index.ts\" \"tsc --watch --p tsconfig.json\"",
+    "dev": "nodemon",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
@@ -31,7 +31,6 @@
     "@echoing/tsconfig": "workspace:*",
     "@protobuf-ts/plugin": "^2.9.4",
     "@types/node": "^22.10.2",
-    "concurrently": "^9.1.0",
     "nodemon": "^3.1.9",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"

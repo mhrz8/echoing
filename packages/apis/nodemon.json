@@ -1,7 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/nodemon.json",
   "delay": 1000,
-  "exec": "buf generate",
-  "ext": "proto",
-  "watch": ["proto"]
+  "exec": "buf generate && tsx ./src/scripts/gen-grpc-index.ts && tsc --p tsconfig.json",
+  "ext": "proto,ts",
+  "watch": ["proto", "src/**/*.ts"],
+  "ignore": ["src/generated/**"]
 }
